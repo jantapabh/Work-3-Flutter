@@ -3,20 +3,23 @@ import 'package:flutter/material.dart';
 
  void main() => runApp(MyApp());
 
-var hearderSection = Row(
-  crossAxisAlignment: CrossAxisAlignment.start,
-  children: <Widget>[
-    Image.asset('assets/images/coc.jpg'),
-    Container(
-      child: Column(
-       children: <Widget>[
-         Text("Jan"),
-         Text("Ree"),
-       ],
-      ),
-    )
-  ],
-  
+var hearderSection = Container(
+  color: Colors.redAccent,
+  child: Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      Image.asset('assets/images/coc.jpg'),
+      Container(
+        margin: EdgeInsets.all(20),
+        child: Column(
+          children: <Widget>[
+            Text("Jan"),
+            Text("Ree"),
+          ],
+        ),
+      )
+    ],
+  )
 );
 
 
