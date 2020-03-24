@@ -17,7 +17,6 @@ var lastSection = Container(
 
 );
 
-
 class MyApp extends StatelessWidget{
 
  @override
