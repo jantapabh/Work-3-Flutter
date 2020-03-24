@@ -8,15 +8,16 @@ var hearderSection = Container(
   child: Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
-      Image.asset('assets/images/coc.jpg'),
+      Image.asset('assets/images/coc.jpg', width: 150, height: 150,),
       Container(
         margin: EdgeInsets.all(20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text("CoC Resturant"),
+            Text("CoC Resturant", style: TextStyle(fontSize: 20),),
             Text("Phuket, Thailand 83120"),
-            Text("Jantapa Binheem"),
-            Text("6035512034")
+            Text("Jantapa Binheem", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10)),
+            Text("6035512034",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10))
           ],
         ),
       )
@@ -25,7 +26,7 @@ var hearderSection = Container(
 );
 
 
-var middleSection = Container(
+var menuSection = Container(
 
 
 );
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget{
         body: ListView(
           children: <Widget>[
             hearderSection,
-            middleSection,
+            menuSection,
             buttonSection
           ],
         ),
