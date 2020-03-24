@@ -1,8 +1,23 @@
-import 'package:flutter/material.dart'
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
  void main() => runApp(MyApp());
 
-var hearderSection = Image.asset('assets/images/coo.jpg');
+var hearderSection = Row(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: <Widget>[
+    Image.asset('assets/images/coc.jpg'),
+    Container(
+      child: Column(
+       children: <Widget>[
+         Text("Jan"),
+         Text("Ree"),
+       ],
+      ),
+    )
+  ],
+  
+);
 
 
 var middleSection = Container(
