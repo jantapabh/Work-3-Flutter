@@ -283,7 +283,11 @@ class buttonSection extends StatefulWidget{
 }
 
 class buttonSectionState extends State<buttonSection>{
+
+
   var opacity = 0.0;
+  final counter = 0;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
