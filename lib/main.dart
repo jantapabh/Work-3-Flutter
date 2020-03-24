@@ -29,9 +29,15 @@ class menuState extends StatefulWidget{
   menuSection createState() => menuSection();
 }
 
+
+var countOne = 0;
+var countTwo = 0;
+var countThree = 0;
+var countFour = 0;
+var countFive = 0;
+
 class menuSection extends State<menuState>{
-  var add = 0;
-  var sub =0;
+
 
   @override
   Widget build(BuildContext context) {
@@ -64,21 +70,21 @@ class menuSection extends State<menuState>{
                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: <Widget>[
                                     MaterialButton(
-                                        child: Text("+"),
+                                        child: Text("-"),
                                         minWidth: 20,
                                         height: 20,
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
-                                          add = add + 1;
+                                          countOne = countOne - 1;
                                         })),
-                                    Text("1"),
+                                    Text('$countOne'),
                                     MaterialButton(
                                         color: Colors.white,
                                         minWidth: 20,
                                         height: 20,
-                                        child: Text("-")
+                                        child: Text("+")
                                         ,onPressed: ()=> setState((){
-                                      sub = sub - 1;
+                                      countOne = countOne + 1;
                                     }))
                                   ],
                                 ),
@@ -110,21 +116,21 @@ class menuSection extends State<menuState>{
                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: <Widget>[
                                     MaterialButton(
-                                        child: Text("+"),
+                                        child: Text("-"),
                                         minWidth: 20,
                                         height: 20,
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
-                                          add = add + 1;
+                                          countTwo = countTwo - 1;
                                         })),
-                                    Text("1"),
+                                    Text('$countTwo'),
                                     MaterialButton(
                                         color: Colors.white,
                                         minWidth: 20,
                                         height: 20,
-                                        child: Text("-")
+                                        child: Text("+")
                                         ,onPressed: ()=> setState((){
-                                      sub = sub - 1;
+                                      countTwo = countTwo + 1;
                                     }))
                                   ],
                                 ),
@@ -156,21 +162,21 @@ class menuSection extends State<menuState>{
                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: <Widget>[
                                     MaterialButton(
-                                        child: Text("+"),
+                                        child: Text("-"),
                                         minWidth: 20,
                                         height: 20,
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
-                                          add = add + 1;
+                                          countThree = countThree - 1;
                                         })),
-                                    Text("1"),
+                                    Text('$countThree'),
                                     MaterialButton(
                                         color: Colors.white,
                                         minWidth: 20,
                                         height: 20,
-                                        child: Text("-")
+                                        child: Text("+")
                                         ,onPressed: ()=> setState((){
-                                      sub = sub - 1;
+                                      countThree = countThree + 1;
                                     }))
                                   ],
                                 ),
@@ -203,21 +209,21 @@ class menuSection extends State<menuState>{
                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: <Widget>[
                                     MaterialButton(
-                                        child: Text("+"),
+                                        child: Text("-"),
                                         minWidth: 20,
                                         height: 20,
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
-                                          add = add + 1;
+                                          countFour = countFour - 1;
                                         })),
-                                    Text("1"),
+                                    Text('$countFour'),
                                     MaterialButton(
                                         color: Colors.white,
                                         minWidth: 20,
                                         height: 20,
-                                        child: Text("-")
+                                        child: Text("+")
                                         ,onPressed: ()=> setState((){
-                                      sub = sub - 1;
+                                      countFour = countFour + 1;
                                     }))
                                   ],
                                 ),
@@ -244,21 +250,21 @@ class menuSection extends State<menuState>{
                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
                              MaterialButton(
-                               child: Text("+"),
+                               child: Text("-"),
                                  minWidth: 20,
                                  height: 20,
                                  color: Colors.white,
                                  onPressed: ()=> setState((){
-                               add = add + 1;
+                                   countFive = countFive - 1;
                              })),
-                              Text("1"),
+                              Text('$countFive'),
                               MaterialButton(
                                   color: Colors.white,
                                minWidth: 20,
                                 height: 20,
-                                child: Text("-")
+                                child: Text("+")
                                   ,onPressed: ()=> setState((){
-                               sub = sub - 1;
+                                countFive = countFive + 1;
                               }))
                             ],
                           ),
@@ -284,9 +290,9 @@ class buttonSection extends StatefulWidget{
 
 class buttonSectionState extends State<buttonSection>{
 
-
   var opacity = 0.0;
   final counter = 0;
+
 
   @override
   Widget build(BuildContext context) {
@@ -299,21 +305,32 @@ class buttonSectionState extends State<buttonSection>{
           color: Colors.greenAccent,
           child: Column(
             children: <Widget>[
-              MaterialButton(
+               RaisedButton(
                   color: Colors.white,
                   child: Text("Submit Order", style: TextStyle(color: Colors.blue),),
-                  onPressed: ()=> setState((){
-                    opacity = 1;
-                  }),
-              ),
-              AnimatedOpacity(
-                duration: Duration(seconds: 2),
-                child: Column(
-                  children: <Widget>[
-                    Text("***Pleas Select Menu***", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),)
-                  ],
-                ),
-                opacity: opacity,
+                  onPressed:() => setState((){
+                    if(true){
+                      if(countOne != 0 || countTwo != 0 || countThree != 0 || countFour != 0 || countFive != 0){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage()));
+                        opacity = 1;
+                      }
+                      else{
+                        return Column(
+                          children: <Widget>[
+                            AnimatedOpacity(
+                                duration: Duration(seconds: 2),
+                              child: Column(
+                                children: <Widget>[
+                                  Text("Pleas Select Menu", style: TextStyle( fontSize: 10, color: Colors.red),),
+                                ],
+                              ),
+                              opacity: opacity,
+                            )
+                          ],
+                        );
+                      }
+                    }
+                  })
               ),
             ],
           ),
@@ -331,14 +348,13 @@ class SecondPage extends StatelessWidget{
       appBar: AppBar(title: Text("Your Order"),),
       body: Container(
         child: ListTile(
-          title: Text(
-            "Jan"
-          ),
+
         ),
       ),
     );
   }
 }
+
 
 class MyApp extends StatelessWidget{
 
