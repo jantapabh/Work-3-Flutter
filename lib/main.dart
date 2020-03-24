@@ -25,7 +25,6 @@ var hearderSection = Container(
   )
 );
 
-
 class menuState extends StatefulWidget{
   menuSection createState() => menuSection();
 }
@@ -292,7 +291,7 @@ class buttonSectionState extends State<buttonSection>{
       children: <Widget>[
         Container(
           height: 100,
-          width: 150,
+          width: 200,
           color: Colors.greenAccent,
           child: Column(
             children: <Widget>[
@@ -307,11 +306,11 @@ class buttonSectionState extends State<buttonSection>{
                 duration: Duration(seconds: 2),
                 child: Column(
                   children: <Widget>[
-                    Text("1")
+                    Text("***Pleas Select Menu***", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),)
                   ],
                 ),
                 opacity: opacity,
-              )
+              ),
             ],
           ),
         ),
@@ -320,10 +319,26 @@ class buttonSectionState extends State<buttonSection>{
   }
 }
 
+class SecondPage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      appBar: AppBar(title: Text("Your Order"),),
+      body: Container(
+        child: ListTile(
+          title: Text(
+            "Jan"
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class MyApp extends StatelessWidget{
 
  @override
-
  Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
