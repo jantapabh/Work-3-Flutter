@@ -13,8 +13,10 @@ var hearderSection = Container(
         margin: EdgeInsets.all(20),
         child: Column(
           children: <Widget>[
-            Text("Jan"),
-            Text("Ree"),
+            Text("CoC Resturant"),
+            Text("Phuket, Thailand 83120"),
+            Text("Jantapa Binheem"),
+            Text("6035512034")
           ],
         ),
       )
