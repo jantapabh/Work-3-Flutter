@@ -10,7 +10,7 @@ var hearderSection = Container(
     children: <Widget>[
       Image.asset('assets/images/coc.jpg', width: 150, height: 150,),
       Container(
-        margin: EdgeInsets.all(20),
+        margin: EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -26,171 +26,257 @@ var hearderSection = Container(
 );
 
 
-var menuSection = Column(
-  mainAxisSize: MainAxisSize.min,
-  children: <Widget>[
-    Container(
-      color: Colors.lightBlueAccent,
-      height: 280,
-      child: ListView(
-        scrollDirection: Axis.vertical,
-        children: <Widget>[
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Image.asset('assets/images/Menu1.jpg', width: 230,),
-              Container(
-              padding: EdgeInsets.all(40),
-                child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("Menu1"),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          Container(
-                            child:Row(
-                              children: <Widget>[
-                                Text("1"),
-                                Text("1"),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Image.asset('assets/images/Menu2.jpg', width: 230,),
-              Container(
-                padding: EdgeInsets.all(40),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("Menu2"),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          Container(
-                            child:Row(
-                              children: <Widget>[
-                                Text("1"),
-                                Text("1"),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Image.asset('assets/images/Menu3.jpg', width: 230,),
-              Container(
-                padding: EdgeInsets.all(40),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("Menu3"),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          Container(
-                            child:Row(
-                              children: <Widget>[
-                                Text("1"),
-                                Text("1"),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Image.asset('assets/images/Menu4.jpg', width: 230,),
-              Container(
-                padding: EdgeInsets.all(40),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("Menu4"),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          Container(
-                            child:Row(
-                              children: <Widget>[
-                                Text("1"),
-                                Text("1"),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Image.asset('assets/images/Menu5.jpg', width: 230,),
-              Container(
-                padding: EdgeInsets.all(40),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("Menu5"),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          Container(
-                            child:Row(
-                              children: <Widget>[
-                                Text("1"),
-                                Text("1"),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
-          )
-        ],
-      ),
-    )
-  ],
-);
+class menuState extends StatefulWidget{
+  menuSection createState() => menuSection();
+}
 
+class menuSection extends State<menuState>{
+  var add = 0;
+  var sub =0;
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Column(
+      children: <Widget>[
+        Container(
+          color: Colors.lightBlueAccent,
+          height: 280,
+          child: ListView(
+            scrollDirection: Axis.vertical,
+            children: <Widget>[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset('assets/images/Menu1.jpg', width: 200,),
+                  Container(
+                    margin: EdgeInsets.only(left: 15),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text("Menu1"),
+                        Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                margin: EdgeInsets.all(2),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: <Widget>[
+                                    MaterialButton(
+                                        child: Text("+"),
+                                        minWidth: 20,
+                                        height: 20,
+                                        color: Colors.white,
+                                        onPressed: ()=> setState((){
+                                          add = add + 1;
+                                        })),
+                                    Text("1"),
+                                    MaterialButton(
+                                        color: Colors.white,
+                                        minWidth: 20,
+                                        height: 20,
+                                        child: Text("-")
+                                        ,onPressed: ()=> setState((){
+                                      sub = sub - 1;
+                                    }))
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset('assets/images/Menu2.jpg', width:  200,),
+                  Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text("Menu2"),
+                        Container(
+                          padding: EdgeInsets.only(left: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Container(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: <Widget>[
+                                    MaterialButton(
+                                        child: Text("+"),
+                                        minWidth: 20,
+                                        height: 20,
+                                        color: Colors.white,
+                                        onPressed: ()=> setState((){
+                                          add = add + 1;
+                                        })),
+                                    Text("1"),
+                                    MaterialButton(
+                                        color: Colors.white,
+                                        minWidth: 20,
+                                        height: 20,
+                                        child: Text("-")
+                                        ,onPressed: ()=> setState((){
+                                      sub = sub - 1;
+                                    }))
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset('assets/images/Menu3.jpg', width: 200,),
+                  Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text("Menu3"),
+                        Container(
+                          margin: EdgeInsets.only(left: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: <Widget>[
+                                    MaterialButton(
+                                        child: Text("+"),
+                                        minWidth: 20,
+                                        height: 20,
+                                        color: Colors.white,
+                                        onPressed: ()=> setState((){
+                                          add = add + 1;
+                                        })),
+                                    Text("1"),
+                                    MaterialButton(
+                                        color: Colors.white,
+                                        minWidth: 20,
+                                        height: 20,
+                                        child: Text("-")
+                                        ,onPressed: ()=> setState((){
+                                      sub = sub - 1;
+                                    }))
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset('assets/images/Menu4.jpg', width:  200,),
+                  Container(
+
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text("Menu4"),
+                        Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Container(
+                                padding: EdgeInsets.only(left: 20),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: <Widget>[
+                                    MaterialButton(
+                                        child: Text("+"),
+                                        minWidth: 20,
+                                        height: 20,
+                                        color: Colors.white,
+                                        onPressed: ()=> setState((){
+                                          add = add + 1;
+                                        })),
+                                    Text("1"),
+                                    MaterialButton(
+                                        color: Colors.white,
+                                        minWidth: 20,
+                                        height: 20,
+                                        child: Text("-")
+                                        ,onPressed: ()=> setState((){
+                                      sub = sub - 1;
+                                    }))
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  Image.asset('assets/images/Menu5.jpg', width:  200,),
+                  Container(
+                    child: Column(
+                     crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text("Menu5"),
+                        Container(
+                          padding: EdgeInsets.only(left: 20),
+                          child: Row(
+                           mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                             MaterialButton(
+                               child: Text("+"),
+                                 minWidth: 20,
+                                 height: 20,
+                                 color: Colors.white,
+                                 onPressed: ()=> setState((){
+                               add = add + 1;
+                             })),
+                              Text("1"),
+                              MaterialButton(
+                                  color: Colors.white,
+                               minWidth: 20,
+                                height: 20,
+                                child: Text("-")
+                                  ,onPressed: ()=> setState((){
+                               sub = sub - 1;
+                              }))
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+        )
+      ],
+    );
+
+  }
+}
 //Finish ListView Menu
 
 class buttonSection extends StatefulWidget{
@@ -198,9 +284,7 @@ class buttonSection extends StatefulWidget{
 }
 
 class buttonSectionState extends State<buttonSection>{
-
   var opacity = 0.0;
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -249,7 +333,7 @@ class MyApp extends StatelessWidget{
         body: ListView(
           children: <Widget>[
             hearderSection,
-            menuSection,
+            menuState(),
             buttonSection()
           ],
         ),
