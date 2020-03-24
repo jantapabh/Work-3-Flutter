@@ -193,10 +193,48 @@ var menuSection = Column(
 
 //Finish ListView Menu
 
-var buttonSection = Container(
+class buttonSection extends StatefulWidget{
+  buttonSectionState createState() => buttonSectionState();
+}
 
+class buttonSectionState extends State<buttonSection>{
 
-);
+  var opacity = 0.0;
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Column(
+      children: <Widget>[
+        Container(
+          height: 100,
+          width: 150,
+          color: Colors.greenAccent,
+          child: Column(
+            children: <Widget>[
+              MaterialButton(
+                  color: Colors.white,
+                  child: Text("Submit Order", style: TextStyle(color: Colors.blue),),
+                  onPressed: ()=> setState((){
+                    opacity = 1;
+                  }),
+              ),
+              AnimatedOpacity(
+                duration: Duration(seconds: 2),
+                child: Column(
+                  children: <Widget>[
+                    Text("1")
+                  ],
+                ),
+                opacity: opacity,
+              )
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
 
 class MyApp extends StatelessWidget{
 
@@ -212,7 +250,7 @@ class MyApp extends StatelessWidget{
           children: <Widget>[
             hearderSection,
             menuSection,
-            buttonSection
+            buttonSection()
           ],
         ),
       ),
