@@ -3,6 +3,21 @@ import 'package:flutter/material.dart';
 
  void main() => runApp(MyApp());
 
+ //ตังนับจำนวนเมนูแต่ละเมนู
+var countOne = 0;
+var countTwo = 0;
+var countThree = 0;
+var countFour = 0;
+var countFive = 0;
+
+//ตัวแปรเก็บค่าชื่อเมนูที่ถูฏเลือก
+var selectMenu1 = "";
+var selectMenu2 = "";
+var selectMenu3 = "";
+var selectMenu4 = "";
+var selectMenu5 = "";
+
+
 var hearderSection = Container(
   color: Colors.redAccent,
   child: Row(
@@ -28,13 +43,6 @@ var hearderSection = Container(
 class menuState extends StatefulWidget{
   menuSection createState() => menuSection();
 }
-
-
-var countOne = 0;
-var countTwo = 0;
-var countThree = 0;
-var countFour = 0;
-var countFive = 0;
 
 class menuSection extends State<menuState>{
 
@@ -85,6 +93,7 @@ class menuSection extends State<menuState>{
                                         child: Text("+")
                                         ,onPressed: ()=> setState((){
                                       countOne = countOne + 1;
+                                      selectMenu1 = "Menu1";
                                     }))
                                   ],
                                 ),
@@ -131,6 +140,7 @@ class menuSection extends State<menuState>{
                                         child: Text("+")
                                         ,onPressed: ()=> setState((){
                                       countTwo = countTwo + 1;
+                                      selectMenu2 = "Menu2";
                                     }))
                                   ],
                                 ),
@@ -177,6 +187,7 @@ class menuSection extends State<menuState>{
                                         child: Text("+")
                                         ,onPressed: ()=> setState((){
                                       countThree = countThree + 1;
+                                      selectMenu3 = "Menu3";
                                     }))
                                   ],
                                 ),
@@ -224,6 +235,7 @@ class menuSection extends State<menuState>{
                                         child: Text("+")
                                         ,onPressed: ()=> setState((){
                                       countFour = countFour + 1;
+                                      selectMenu4 = "Menu4";
                                     }))
                                   ],
                                 ),
@@ -265,6 +277,7 @@ class menuSection extends State<menuState>{
                                 child: Text("+")
                                   ,onPressed: ()=> setState((){
                                 countFive = countFive + 1;
+                                selectMenu5 = "Menu5";
                               }))
                             ],
                           ),
