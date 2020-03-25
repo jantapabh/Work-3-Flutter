@@ -305,7 +305,7 @@ class buttonSectionState extends State<buttonSection>{
           color: Colors.greenAccent,
           child: Column(
             children: <Widget>[
-               MaterialButton(
+               RaisedButton(
                   color: Colors.white,
                   child: Text("Submit Order", style: TextStyle(color: Colors.blue),),
                   onPressed:() => setState((){
@@ -314,9 +314,6 @@ class buttonSectionState extends State<buttonSection>{
                       {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage()));
                       }
-                    else{
-                      opacity = opacity;
-                    }
                   }),
               ),
           AnimatedOpacity(
