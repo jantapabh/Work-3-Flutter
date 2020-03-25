@@ -1,22 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:english_words/english_words.dart';
 
  void main() => runApp(MyApp());
 
  //ตังนับจำนวนเมนูแต่ละเมนู
-var countOne = 0;
-var countTwo = 0;
-var countThree = 0;
-var countFour = 0;
-var countFive = 0;
-
-//ตัวแปรเก็บค่าชื่อเมนูที่ถูฏเลือก
-var selectMenu1 = "";
-var selectMenu2 = "";
-var selectMenu3 = "";
-var selectMenu4 = "";
-var selectMenu5 = "";
-
+//var countOne = 0;
+//var countTwo = 0;
+//var countThree = 0;
+//var countFour = 0;
+//var countFive = 0;
+//
+////ตัวแปรเก็บค่าชื่อเมนูที่ถูฏเลือก
+//var selectMenu1 = "";
+//var selectMenu2 = "";
+//var selectMenu3 = "";
+//var selectMenu4 = "";
+//var selectMenu5 = "";
 
 var hearderSection = Container(
   color: Colors.redAccent,
@@ -84,6 +84,10 @@ class menuSection extends State<menuState>{
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
                                           countOne = countOne - 1;
+                                          if(countOne == 0)
+                                          {
+                                            menuSelect[0] = " ";
+                                          }
                                         })),
                                     Text('$countOne'),
                                     MaterialButton(
@@ -94,6 +98,12 @@ class menuSection extends State<menuState>{
                                         ,onPressed: ()=> setState((){
                                       countOne = countOne + 1;
                                       selectMenu1 = "Menu1";
+                                      MixOrderMenu.add("Menu1");
+                                      MixOrderCount.add(countOne);
+                                      if(countOne != 0)
+                                        {
+                                          menuSelect[0] = (selectMenu1);
+                                        }
                                     }))
                                   ],
                                 ),
@@ -131,6 +141,9 @@ class menuSection extends State<menuState>{
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
                                           countTwo = countTwo - 1;
+                                          if(countTwo == 0){
+                                            menuSelect[1] = "";
+                                          }
                                         })),
                                     Text('$countTwo'),
                                     MaterialButton(
@@ -141,6 +154,11 @@ class menuSection extends State<menuState>{
                                         ,onPressed: ()=> setState((){
                                       countTwo = countTwo + 1;
                                       selectMenu2 = "Menu2";
+                                      MixOrderMenu.add("Menu2");
+                                      MixOrderCount.add(countTwo);
+                                      if(countTwo != 0){
+                                        menuSelect[1] = (selectMenu2);
+                                      }
                                     }))
                                   ],
                                 ),
@@ -178,6 +196,10 @@ class menuSection extends State<menuState>{
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
                                           countThree = countThree - 1;
+                                          if(countThree == 0)
+                                          {
+                                            menuSelect[2] = " ";
+                                          }
                                         })),
                                     Text('$countThree'),
                                     MaterialButton(
@@ -188,6 +210,13 @@ class menuSection extends State<menuState>{
                                         ,onPressed: ()=> setState((){
                                       countThree = countThree + 1;
                                       selectMenu3 = "Menu3";
+                                      MixOrderMenu.add("Menu3");
+                                      MixOrderCount.add(countThree);
+                                      if(countThree != 0)
+                                      {
+                                        menuSelect[2] = (selectMenu3);
+                                      }
+
                                     }))
                                   ],
                                 ),
@@ -226,6 +255,9 @@ class menuSection extends State<menuState>{
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
                                           countFour = countFour - 1;
+                                          if(countFour == 0){
+                                            menuSelect[3] = " ";
+                                          }
                                         })),
                                     Text('$countFour'),
                                     MaterialButton(
@@ -236,6 +268,12 @@ class menuSection extends State<menuState>{
                                         ,onPressed: ()=> setState((){
                                       countFour = countFour + 1;
                                       selectMenu4 = "Menu4";
+                                      MixOrderMenu.add("Menu4");
+                                      MixOrderCount.add(countFour);
+                                      if(countFour != 0)
+                                      {
+                                        menuSelect[3] = (selectMenu4);
+                                      }
                                     }))
                                   ],
                                 ),
@@ -268,6 +306,10 @@ class menuSection extends State<menuState>{
                                  color: Colors.white,
                                  onPressed: ()=> setState((){
                                    countFive = countFive - 1;
+                                   if(countFive == 0)
+                                     {
+                                       menuSelect[4] = " ";
+                                     }
                              })),
                               Text('$countFive'),
                               MaterialButton(
@@ -278,6 +320,12 @@ class menuSection extends State<menuState>{
                                   ,onPressed: ()=> setState((){
                                 countFive = countFive + 1;
                                 selectMenu5 = "Menu5";
+                                MixOrderMenu.add("Menu5");
+                                MixOrderCount.add(countFive);
+                                if(countFive != 0)
+                                {
+                                  menuSelect[4] = (selectMenu5);
+                                }
                               }))
                             ],
                           ),
@@ -304,8 +352,6 @@ class buttonSection extends StatefulWidget{
 class buttonSectionState extends State<buttonSection>{
 
   var opacity = 0.0;
-  final counter = 0;
-
 
   @override
   Widget build(BuildContext context) {
@@ -325,7 +371,7 @@ class buttonSectionState extends State<buttonSection>{
                     opacity = 1;
                     if(countOne != 0 || countTwo != 0 || countThree != 0 || countFour != 0 || countFive != 0 )
                       {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => ListMenu()));
                       }
                   }),
               ),
@@ -346,17 +392,51 @@ class buttonSectionState extends State<buttonSection>{
   }
 }
 
-class SecondPage extends StatelessWidget{
+var countOne = 0;
+var countTwo = 0;
+var countThree = 0;
+var countFour = 0;
+var countFive = 0;
+
+//ตัวแปรเก็บค่าชื่อเมนูที่ถูฏเลือก
+var selectMenu1 = "";
+var selectMenu2 = "";
+var selectMenu3 = "";
+var selectMenu4 = "";
+var selectMenu5 = "";
+
+//Array list countMenu and Menu
+
+List<int> menuCount = [0, 0, 0, 0, 0];
+List<String> menuSelect = ["","","","",""];
+List<String> MixOrderMenu= [" "," "," "," "," "];
+List<int> MixOrderCount = [0,0,0,0,0];
+
+class ListMenu extends StatefulWidget{
   @override
+  ListMenuState createState() => ListMenuState();
+
+}
+// ListView Biukder in Display list Menu
+
+class ListMenuState extends State<ListMenu>{
+
+  Widget _buildSuggestion() {
+    return Container(
+
+    );
+  }
+
+// function MAin
+
+  @override
+
   Widget build(BuildContext context) {
-    // TODO: implement build
+
     return Scaffold(
       appBar: AppBar(title: Text("Your Order"),),
-      body: Container(
-        child: ListTile(
-
-        ),
-      ),
+      backgroundColor: Colors.grey,
+      body: _buildSuggestion(),
     );
   }
 }
