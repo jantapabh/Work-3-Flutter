@@ -305,33 +305,29 @@ class buttonSectionState extends State<buttonSection>{
           color: Colors.greenAccent,
           child: Column(
             children: <Widget>[
-               RaisedButton(
+               MaterialButton(
                   color: Colors.white,
                   child: Text("Submit Order", style: TextStyle(color: Colors.blue),),
                   onPressed:() => setState((){
-                    if(true){
-                      if(countOne != 0 || countTwo != 0 || countThree != 0 || countFour != 0 || countFive != 0){
+                    opacity = 1;
+                    if(countOne != 0 || countTwo != 0 || countThree != 0 || countFour != 0 || countFive != 0 )
+                      {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage()));
-                        opacity = 1;
                       }
-                      else{
-                        return Column(
-                          children: <Widget>[
-                            AnimatedOpacity(
-                                duration: Duration(seconds: 2),
-                              child: Column(
-                                children: <Widget>[
-                                  Text("Pleas Select Menu", style: TextStyle( fontSize: 10, color: Colors.red),),
-                                ],
-                              ),
-                              opacity: opacity,
-                            )
-                          ],
-                        );
-                      }
+                    else{
+                      opacity = opacity;
                     }
-                  })
+                  }),
               ),
+          AnimatedOpacity(
+        duration: Duration(seconds: 2),
+        child: Column(
+          children: <Widget>[
+            Text("Pleas Select Menu", style: TextStyle( fontSize:15, color: Colors.red, fontWeight: FontWeight.bold),),
+          ],
+        ),
+        opacity: opacity,
+      ),
             ],
           ),
         ),
