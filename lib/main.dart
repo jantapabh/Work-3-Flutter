@@ -94,6 +94,7 @@ class menuSection extends State<menuState>{
                                               countOne = countOne - 1;
                                               menuCount[0] = countOne;
                                             }
+                                          count --;
                                         })),
                                     Text('$countOne'),
                                     MaterialButton(
@@ -105,7 +106,7 @@ class menuSection extends State<menuState>{
                                       countOne = countOne + 1;
                                       selectMenu1 = "Menu1";
                                       selects[0] = selectMenu1;
-                                      count ++;
+                                      count = count + 1;;
                                       if(count >= 15)
                                       {
                                         count --;
@@ -114,6 +115,7 @@ class menuSection extends State<menuState>{
                                         {
                                           menuSelect[0] = (selectMenu1);
                                           menuCount[0] = countOne;
+                                          count =  count = count + selects.length;
                                         }
 
                                     }))
@@ -160,6 +162,7 @@ class menuSection extends State<menuState>{
                                             countTwo = countTwo - 1;
                                             menuCount[1] = countTwo;
                                           }
+                                          count --;
                                         })),
                                     Text('$countTwo'),
                                     MaterialButton(
@@ -171,7 +174,7 @@ class menuSection extends State<menuState>{
                                       countTwo = countTwo + 1;
                                       selectMenu2 = "Menu2";
                                       selects[1] = selectMenu2;
-                                      count ++;
+                                      count = count + 1;
                                       if(count >= 15)
                                       {
                                         count --;
@@ -179,6 +182,7 @@ class menuSection extends State<menuState>{
                                       if(countTwo != 0){
                                         menuSelect[1] = (selectMenu2);
                                         menuCount[1] = countTwo;
+                                        count = count + selects.length;
                                       }
                                     }))
                                   ],
@@ -225,6 +229,7 @@ class menuSection extends State<menuState>{
                                             countThree = countThree - 1;
                                             menuCount[2] = countThree;
                                           }
+                                          count --;
                                         })),
                                     Text('$countThree'),
                                     MaterialButton(
@@ -236,7 +241,7 @@ class menuSection extends State<menuState>{
                                       countThree = countThree + 1;
                                       selectMenu3 = "Menu3";
                                       selects[2] = selectMenu3;
-                                      count ++;
+                                      count = count + 1;
                                       if(count >= 15)
                                       {
                                         count --;
@@ -245,6 +250,7 @@ class menuSection extends State<menuState>{
                                       {
                                         menuSelect[2] = (selectMenu3);
                                         menuCount[2] = countThree;
+                                        count = count + selects.length;
                                       }
                                     }))
                                   ],
@@ -291,6 +297,7 @@ class menuSection extends State<menuState>{
                                             countFour = countFour - 1;
                                             menuCount[3] = countFour;
                                           }
+                                          count --;
                                         })),
                                     Text('$countFour'),
                                     MaterialButton(
@@ -311,6 +318,7 @@ class menuSection extends State<menuState>{
                                       {
                                         menuSelect[3] = (selectMenu4);
                                         menuCount[3] = countFour;
+                                        count = count + selects.length;
                                       }
                                     }))
                                   ],
@@ -353,7 +361,7 @@ class menuSection extends State<menuState>{
                                      countFive = countFive - 1;
                                      menuCount[4] = countFive;
                                    }
-
+                                   count --;
                              })),
                               Text('$countFive'),
                               MaterialButton(
@@ -374,6 +382,7 @@ class menuSection extends State<menuState>{
                                 {
                                   menuSelect[4] = (selectMenu5);
                                   menuCount[4] = countFive;
+                                  count = count + selects.length;
                                 }
                               }))
                             ],
