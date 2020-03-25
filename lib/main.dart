@@ -84,9 +84,11 @@ class menuSection extends State<menuState>{
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
                                           countOne = countOne - 1;
+                                          menuCount[0] = countOne;
                                           if(countOne == 0)
                                           {
                                             menuSelect[0] = " ";
+
                                           }
                                         })),
                                     Text('$countOne'),
@@ -98,12 +100,18 @@ class menuSection extends State<menuState>{
                                         ,onPressed: ()=> setState((){
                                       countOne = countOne + 1;
                                       selectMenu1 = "Menu1";
-                                      MixOrderMenu.add("Menu1");
-                                      MixOrderCount.add(countOne);
+                                      selects[0] = selectMenu1;
+                                      count ++;
+                                      if(count >= 5)
+                                      {
+                                        count --;
+                                      }
                                       if(countOne != 0)
                                         {
                                           menuSelect[0] = (selectMenu1);
+                                          menuCount[0] = countOne;
                                         }
+
                                     }))
                                   ],
                                 ),
@@ -141,6 +149,7 @@ class menuSection extends State<menuState>{
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
                                           countTwo = countTwo - 1;
+                                          menuCount[1] = countTwo;
                                           if(countTwo == 0){
                                             menuSelect[1] = "";
                                           }
@@ -154,10 +163,15 @@ class menuSection extends State<menuState>{
                                         ,onPressed: ()=> setState((){
                                       countTwo = countTwo + 1;
                                       selectMenu2 = "Menu2";
-                                      MixOrderMenu.add("Menu2");
-                                      MixOrderCount.add(countTwo);
+                                      selects[1] = selectMenu2;
+                                      count ++;
+                                      if(count >= 5)
+                                      {
+                                        count --;
+                                      }
                                       if(countTwo != 0){
                                         menuSelect[1] = (selectMenu2);
+                                        menuCount[1] = countTwo;
                                       }
                                     }))
                                   ],
@@ -196,6 +210,7 @@ class menuSection extends State<menuState>{
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
                                           countThree = countThree - 1;
+                                          menuCount[2] = countThree;
                                           if(countThree == 0)
                                           {
                                             menuSelect[2] = " ";
@@ -210,11 +225,17 @@ class menuSection extends State<menuState>{
                                         ,onPressed: ()=> setState((){
                                       countThree = countThree + 1;
                                       selectMenu3 = "Menu3";
-                                      MixOrderMenu.add("Menu3");
-                                      MixOrderCount.add(countThree);
+                                      selects[2] = selectMenu3;
+                                      count ++;
+                                      if(count >= 5)
+                                      {
+                                        count --;
+                                      }
                                       if(countThree != 0)
                                       {
                                         menuSelect[2] = (selectMenu3);
+                                        menuCount[2] = countThree;
+
                                       }
 
                                     }))
@@ -255,6 +276,7 @@ class menuSection extends State<menuState>{
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
                                           countFour = countFour - 1;
+                                          menuCount[3] = countFour;
                                           if(countFour == 0){
                                             menuSelect[3] = " ";
                                           }
@@ -268,11 +290,16 @@ class menuSection extends State<menuState>{
                                         ,onPressed: ()=> setState((){
                                       countFour = countFour + 1;
                                       selectMenu4 = "Menu4";
-                                      MixOrderMenu.add("Menu4");
-                                      MixOrderCount.add(countFour);
+                                      selects[3] = selectMenu4;
+                                      count ++;
+                                      if(count >= 5)
+                                      {
+                                        count --;
+                                      }
                                       if(countFour != 0)
                                       {
                                         menuSelect[3] = (selectMenu4);
+                                        menuCount[3] = countFour;
                                       }
                                     }))
                                   ],
@@ -306,6 +333,7 @@ class menuSection extends State<menuState>{
                                  color: Colors.white,
                                  onPressed: ()=> setState((){
                                    countFive = countFive - 1;
+                                   menuCount[4] = countFive;
                                    if(countFive == 0)
                                      {
                                        menuSelect[4] = " ";
@@ -320,11 +348,16 @@ class menuSection extends State<menuState>{
                                   ,onPressed: ()=> setState((){
                                 countFive = countFive + 1;
                                 selectMenu5 = "Menu5";
-                                MixOrderMenu.add("Menu5");
-                                MixOrderCount.add(countFive);
+                                selects[4] = selectMenu5;
+                                count ++;
+                                if(count >= 5)
+                                {
+                                  count --;
+                                }
                                 if(countFive != 0)
                                 {
                                   menuSelect[4] = (selectMenu5);
+                                  menuCount[4] = countFive;
                                 }
                               }))
                             ],
@@ -409,8 +442,11 @@ var selectMenu5 = "";
 
 List<int> menuCount = [0, 0, 0, 0, 0];
 List<String> menuSelect = ["","","","",""];
-List<String> MixOrderMenu= [" "," "," "," "," "];
-List<int> MixOrderCount = [0,0,0,0,0];
+var count = 0;
+final List<String> selects = [" "," "," "," "," "];
+
+
+//final List<String> items = List<String>.generate(selects.length, (index) => "Menu${++index}");
 
 class ListMenu extends StatefulWidget{
   @override
@@ -423,7 +459,15 @@ class ListMenuState extends State<ListMenu>{
 
   Widget _buildSuggestion() {
     return Container(
-
+      child: ListView.builder(
+        itemCount: count,
+          itemBuilder: (context, index){
+          return ListTile(
+            leading: Icon(Icons.fastfood),
+            title: Text("${selects[index]}"),
+            trailing: Text("${menuCount[index]}"),
+          );
+          }),
     );
   }
 
