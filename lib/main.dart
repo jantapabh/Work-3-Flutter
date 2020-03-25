@@ -83,13 +83,17 @@ class menuSection extends State<menuState>{
                                         height: 20,
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
-                                          countOne = countOne - 1;
-                                          menuCount[0] = countOne;
                                           if(countOne == 0)
                                           {
                                             menuSelect[0] = " ";
+                                            countOne = 0;
 
                                           }
+                                          else
+                                            {
+                                              countOne = countOne - 1;
+                                              menuCount[0] = countOne;
+                                            }
                                         })),
                                     Text('$countOne'),
                                     MaterialButton(
@@ -102,7 +106,7 @@ class menuSection extends State<menuState>{
                                       selectMenu1 = "Menu1";
                                       selects[0] = selectMenu1;
                                       count ++;
-                                      if(count >= 5)
+                                      if(count >= 15)
                                       {
                                         count --;
                                       }
@@ -148,10 +152,13 @@ class menuSection extends State<menuState>{
                                         height: 20,
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
-                                          countTwo = countTwo - 1;
-                                          menuCount[1] = countTwo;
                                           if(countTwo == 0){
                                             menuSelect[1] = "";
+                                            countTwo = 0;
+                                          }
+                                          else{
+                                            countTwo = countTwo - 1;
+                                            menuCount[1] = countTwo;
                                           }
                                         })),
                                     Text('$countTwo'),
@@ -165,7 +172,7 @@ class menuSection extends State<menuState>{
                                       selectMenu2 = "Menu2";
                                       selects[1] = selectMenu2;
                                       count ++;
-                                      if(count >= 5)
+                                      if(count >= 15)
                                       {
                                         count --;
                                       }
@@ -209,11 +216,14 @@ class menuSection extends State<menuState>{
                                         height: 20,
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
-                                          countThree = countThree - 1;
-                                          menuCount[2] = countThree;
                                           if(countThree == 0)
                                           {
                                             menuSelect[2] = " ";
+                                            countThree = 0;
+                                          }
+                                          else{
+                                            countThree = countThree - 1;
+                                            menuCount[2] = countThree;
                                           }
                                         })),
                                     Text('$countThree'),
@@ -227,7 +237,7 @@ class menuSection extends State<menuState>{
                                       selectMenu3 = "Menu3";
                                       selects[2] = selectMenu3;
                                       count ++;
-                                      if(count >= 5)
+                                      if(count >= 15)
                                       {
                                         count --;
                                       }
@@ -235,9 +245,7 @@ class menuSection extends State<menuState>{
                                       {
                                         menuSelect[2] = (selectMenu3);
                                         menuCount[2] = countThree;
-
                                       }
-
                                     }))
                                   ],
                                 ),
@@ -275,10 +283,13 @@ class menuSection extends State<menuState>{
                                         height: 20,
                                         color: Colors.white,
                                         onPressed: ()=> setState((){
-                                          countFour = countFour - 1;
-                                          menuCount[3] = countFour;
                                           if(countFour == 0){
+                                            countFour = 0;
                                             menuSelect[3] = " ";
+                                          }
+                                          else{
+                                            countFour = countFour - 1;
+                                            menuCount[3] = countFour;
                                           }
                                         })),
                                     Text('$countFour'),
@@ -292,7 +303,7 @@ class menuSection extends State<menuState>{
                                       selectMenu4 = "Menu4";
                                       selects[3] = selectMenu4;
                                       count ++;
-                                      if(count >= 5)
+                                      if(count >= 15)
                                       {
                                         count --;
                                       }
@@ -332,12 +343,17 @@ class menuSection extends State<menuState>{
                                  height: 20,
                                  color: Colors.white,
                                  onPressed: ()=> setState((){
-                                   countFive = countFive - 1;
-                                   menuCount[4] = countFive;
                                    if(countFive == 0)
-                                     {
-                                       menuSelect[4] = " ";
-                                     }
+                                   {
+                                     menuSelect[4] = " ";
+                                     countFive = 0;
+
+                                   }
+                                   else{
+                                     countFive = countFive - 1;
+                                     menuCount[4] = countFive;
+                                   }
+
                              })),
                               Text('$countFive'),
                               MaterialButton(
@@ -350,7 +366,7 @@ class menuSection extends State<menuState>{
                                 selectMenu5 = "Menu5";
                                 selects[4] = selectMenu5;
                                 count ++;
-                                if(count >= 5)
+                                if(count >= 15)
                                 {
                                   count --;
                                 }
@@ -430,6 +446,7 @@ var countTwo = 0;
 var countThree = 0;
 var countFour = 0;
 var countFive = 0;
+var count = 0; //  Number count Click Button if count > 5 will reset = 0
 
 //ตัวแปรเก็บค่าชื่อเมนูที่ถูฏเลือก
 var selectMenu1 = "";
@@ -442,7 +459,6 @@ var selectMenu5 = "";
 
 List<int> menuCount = [0, 0, 0, 0, 0];
 List<String> menuSelect = ["","","","",""];
-var count = 0;
 final List<String> selects = [" "," "," "," "," "];
 
 
