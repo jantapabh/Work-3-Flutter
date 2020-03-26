@@ -1,3 +1,4 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
@@ -87,14 +88,13 @@ class menuSection extends State<menuState>{
                                           {
                                             menuSelect[0] = " ";
                                             countOne = 0;
-                                            count = count;
 
                                           }
                                           else
                                             {
                                               countOne = countOne - 1;
                                               menuCount[0] = countOne;
-                                              count --;
+
                                             }
                                         })),
                                     Text('$countOne'),
@@ -107,18 +107,12 @@ class menuSection extends State<menuState>{
                                       countOne = countOne + 1;
                                       selectMenu1 = "Menu1";
                                       selects[0] = selectMenu1;
-                                      count = count + 1;
-                                      if(count >= 15)
-                                      {
-                                        count --;
-                                      }
                                       if(countOne != 0)
                                         {
                                           menuSelect[0] = (selectMenu1);
                                           menuCount[0] = countOne;
-                                          count = count;
+                                          counts[0] = true;
                                         }
-
                                     }))
                                   ],
                                 ),
@@ -158,14 +152,11 @@ class menuSection extends State<menuState>{
                                           if(countTwo == 0){
                                             menuSelect[1] = "";
                                             countTwo = 0;
-                                            count = count;
                                           }
                                           else{
                                             countTwo = countTwo - 1;
                                             menuCount[1] = countTwo;
-                                            count --;
                                           }
-
                                         })),
                                     Text('$countTwo'),
                                     MaterialButton(
@@ -177,15 +168,10 @@ class menuSection extends State<menuState>{
                                       countTwo = countTwo + 1;
                                       selectMenu2 = "Menu2";
                                       selects[1] = selectMenu2;
-                                      count = count + 1;
-                                      if(count >= 15)
-                                      {
-                                        count --;
-                                      }
                                       if(countTwo != 0){
                                         menuSelect[1] = (selectMenu2);
                                         menuCount[1] = countTwo;
-                                        count = count;
+                                        counts[1] = true;
                                       }
                                     }))
                                   ],
@@ -227,12 +213,10 @@ class menuSection extends State<menuState>{
                                           {
                                             menuSelect[2] = " ";
                                             countThree = 0;
-                                            count = count;
                                           }
                                           else{
                                             countThree = countThree - 1;
                                             menuCount[2] = countThree;
-                                            count --;
                                           }
 
                                         })),
@@ -246,16 +230,11 @@ class menuSection extends State<menuState>{
                                       countThree = countThree + 1;
                                       selectMenu3 = "Menu3";
                                       selects[2] = selectMenu3;
-                                      count = count + 1;
-                                      if(count >= 15)
-                                      {
-                                        count --;
-                                      }
                                       if(countThree != 0)
                                       {
                                         menuSelect[2] = (selectMenu3);
                                         menuCount[2] = countThree;
-                                        count = count;
+                                        counts[2] = true;
                                       }
                                     }))
                                   ],
@@ -297,12 +276,11 @@ class menuSection extends State<menuState>{
                                           if(countFour == 0){
                                             countFour = 0;
                                             menuSelect[3] = " ";
-                                            count = count;
                                           }
                                           else{
                                             countFour = countFour - 1;
                                             menuCount[3] = countFour;
-                                            count --;
+
                                           }
 
                                         })),
@@ -316,16 +294,12 @@ class menuSection extends State<menuState>{
                                       countFour = countFour + 1;
                                       selectMenu4 = "Menu4";
                                       selects[3] = selectMenu4;
-                                      count ++;
-                                      if(count >= 15)
-                                      {
-                                        count --;
-                                      }
                                       if(countFour != 0)
                                       {
                                         menuSelect[3] = (selectMenu4);
                                         menuCount[3] = countFour;
-                                        count = count;
+                                        counts[3] = true;
+
                                       }
                                     }))
                                   ],
@@ -362,13 +336,10 @@ class menuSection extends State<menuState>{
                                    {
                                      menuSelect[4] = " ";
                                      countFive = 0;
-                                     count = count;
-
                                    }
                                    else{
                                      countFive = countFive - 1;
                                      menuCount[4] = countFive;
-                                     count --;
                                    }
 
                              })),
@@ -382,16 +353,11 @@ class menuSection extends State<menuState>{
                                 countFive = countFive + 1;
                                 selectMenu5 = "Menu5";
                                 selects[4] = selectMenu5;
-                                count ++;
-                                if(count >= 15)
-                                {
-                                  count --;
-                                }
                                 if(countFive != 0)
                                 {
                                   menuSelect[4] = (selectMenu5);
                                   menuCount[4] = countFive;
-                                  count = count;
+                                  counts[0] = true;
                                 }
                               }))
                             ],
@@ -419,6 +385,7 @@ class buttonSection extends StatefulWidget{
 class buttonSectionState extends State<buttonSection>{
 
   var opacity = 0.0;
+  var state = false;
 
   @override
   Widget build(BuildContext context) {
@@ -431,26 +398,27 @@ class buttonSectionState extends State<buttonSection>{
           color: Colors.greenAccent,
           child: Column(
             children: <Widget>[
-               RaisedButton(
-                  color: Colors.white,
+              RaisedButton(
+                 color: Colors.white,
                   child: Text("Submit Order", style: TextStyle(color: Colors.blue),),
                   onPressed:() => setState((){
                     opacity = 1;
-                    if(countOne != 0 || countTwo != 0 || countThree != 0 || countFour != 0 || countFive != 0 )
-                      {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => ListMenu()));
-                      }
+                  if(true)
+                    {
+                      countOne == 0 && countTwo == 0 && countThree == 0 && countFour == 0 && countFive == 0 ?
+                      AnimatedOpacity(
+                        duration: Duration(seconds: 2),
+                        child: Column(
+                          children: <Widget>[
+                            Text("***Please Select Menu***", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),)
+                          ],
+                        ),
+                        opacity: opacity,
+                      ):
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ListMenu()));
+                    }
                   }),
-              ),
-          AnimatedOpacity(
-        duration: Duration(seconds: 2),
-        child: Column(
-          children: <Widget>[
-            Text("***Pleas Select Menu***", style: TextStyle( fontSize:15, color: Colors.red, fontWeight: FontWeight.bold),),
-          ],
-        ),
-        opacity: opacity,
-      ),
+              )
             ],
           ),
         ),
@@ -474,11 +442,11 @@ var selectMenu4 = "";
 var selectMenu5 = "";
 
 //Array list countMenu and Menu
-
+final bool savedState = false;
 List<int> menuCount = [0, 0, 0, 0, 0];
 List<String> menuSelect = ["","","","",""];
 final List<String> selects = [" "," "," "," "," "];
-
+final List<bool> counts = [ false,false,false,false,false];
 
 //final List<String> items = List<String>.generate(selects.length, (index) => "Menu${++index}");
 
@@ -489,17 +457,23 @@ class ListMenu extends StatefulWidget{
 }
 // ListView Biukder in Display list Menu
 
+
 class ListMenuState extends State<ListMenu>{
 
   Widget _buildSuggestion() {
+
+     counts == true ? count++ : count;
     return Container(
       child: ListView.builder(
-        itemCount: count,
+        itemCount: menuSelect.length,
           itemBuilder: (context, index){
           return ListTile(
-            leading: Icon(Icons.fastfood),
-            title: Text("${selects[index]}"),
-            trailing: Text("${menuCount[index]}"),
+            leading: Icon(
+                Icons.fastfood),
+            title: Text(
+             counts != false ? "${selects[index]}" : index++ ),
+            trailing: Text(
+                menuCount != 0 ? "${menuCount[index]}" : index++ ),
           );
           }),
     );
