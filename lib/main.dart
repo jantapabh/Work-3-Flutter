@@ -6,20 +6,6 @@ import 'package:english_words/english_words.dart';
 
  void main() => runApp(MyApp());
 
- //ตังนับจำนวนเมนูแต่ละเมนู
-//var countOne = 0;
-//var countTwo = 0;
-//var countThree = 0;
-//var countFour = 0;
-//var countFive = 0;
-//
-////ตัวแปรเก็บค่าชื่อเมนูที่ถูฏเลือก
-//var selectMenu1 = "";
-//var selectMenu2 = "";
-//var selectMenu3 = "";
-//var selectMenu4 = "";
-//var selectMenu5 = "";
-
 var hearderSection = Container(
   color: Colors.redAccent,
   child: Row(
@@ -107,12 +93,10 @@ class menuSection extends State<menuState>{
                                         ,onPressed: ()=> setState((){
                                       countOne = countOne + 1;
                                       selectMenu1 = "Menu1";
-                                      selects[0] = selectMenu1;
                                       if(countOne != 0)
                                         {
                                           menuSelect[0] = (selectMenu1);
                                           menuCount[0] = countOne;
-                                          counts[0] = true;
                                         }
                                     }))
                                   ],
@@ -168,11 +152,9 @@ class menuSection extends State<menuState>{
                                         ,onPressed: ()=> setState((){
                                       countTwo = countTwo + 1;
                                       selectMenu2 = "Menu2";
-                                      selects[1] = selectMenu2;
                                       if(countTwo != 0){
                                         menuSelect[1] = (selectMenu2);
                                         menuCount[1] = countTwo;
-                                        counts[1] = true;
                                       }
                                     }))
                                   ],
@@ -230,12 +212,10 @@ class menuSection extends State<menuState>{
                                         ,onPressed: ()=> setState((){
                                       countThree = countThree + 1;
                                       selectMenu3 = "Menu3";
-                                      selects[2] = selectMenu3;
                                       if(countThree != 0)
                                       {
                                         menuSelect[2] = (selectMenu3);
                                         menuCount[2] = countThree;
-                                        counts[2] = true;
                                       }
                                     }))
                                   ],
@@ -294,13 +274,10 @@ class menuSection extends State<menuState>{
                                         ,onPressed: ()=> setState((){
                                       countFour = countFour + 1;
                                       selectMenu4 = "Menu4";
-                                      selects[3] = selectMenu4;
                                       if(countFour != 0)
                                       {
                                         menuSelect[3] = (selectMenu4);
                                         menuCount[3] = countFour;
-                                        counts[3] = true;
-
                                       }
                                     }))
                                   ],
@@ -353,12 +330,10 @@ class menuSection extends State<menuState>{
                                   ,onPressed: ()=> setState((){
                                 countFive = countFive + 1;
                                 selectMenu5 = "Menu5";
-                                selects[4] = selectMenu5;
                                 if(countFive != 0)
                                 {
                                   menuSelect[4] = (selectMenu5);
                                   menuCount[4] = countFive;
-                                  counts[0] = true;
                                 }
                               }))
                             ],
@@ -409,7 +384,7 @@ class buttonSectionState extends State<buttonSection>{
             duration: Duration(seconds: 2),
         child: Column(
           children: <Widget>[
-            Text("***Select Menu Pleas***", style: TextStyle(color: Colors.redAccent, fontSize: 15 , fontWeight: FontWeight.bold),)
+            Text("***Please Select Menu***", style: TextStyle(color: Colors.redAccent, fontSize: 15 , fontWeight: FontWeight.bold),)
           ],
         ),
         opacity: opacity,)
@@ -434,50 +409,48 @@ var selectMenu5 = "";
 //Array list countMenu and Menu
 List<int> menuCount = [0, 0, 0, 0, 0];
 List<String> menuSelect = ["","","","",""];
-final List<String> selects = ["","","","",""];
-final List<bool> counts = [ false,false,false,false,false];
 
-//final List<String> items = List<String>.generate(selects.length, (index) => "Menu${++index}");
-
-class ListMenu extends StatefulWidget{
-  @override
-  ListMenuState createState() => ListMenuState();
-
-}
-// ListView Biukder in Display list Menu
-final int count = 0 ;
-
-
-class ListMenuState extends State<ListMenu>{
-
-  Widget _buildSuggestion() {
-
-    return Container(
-      child: ListView.builder(
-        itemCount: menuCount.length,
-          itemBuilder: (context, index){
-          return ListTile(
-            leading: Icon(
-                menuCount[index] != 0 ? Icons.fastfood : null),
-            title: Text(
-                selects[index] != " " ? "${selects[index]}" : ""),
-            trailing: Text(
-                menuCount[index] != 0 ? "${menuCount[index]}" : ""),
-          );
-          }),
-    );
-  }
+class ListMenu extends StatelessWidget{
 
 // function MAin
-
   @override
-
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(title: Text("Your Order"),),
       backgroundColor: Colors.grey,
-      body: _buildSuggestion(),
+      body: Column(
+        children: <Widget>[
+          if(countOne != 0)
+          ListTile(
+            leading: Icon(Icons.fastfood),
+            title: Text("${selectMenu1}"),
+            trailing: Text("${countOne}"),
+          ),
+          if(countTwo != 0)
+            ListTile(
+              leading: Icon(Icons.fastfood),
+              title: Text("${selectMenu2}"),
+              trailing: Text("${countTwo}"),
+            ),
+          if(countThree!= 0)
+            ListTile(
+              leading: Icon(Icons.fastfood),
+              title: Text("${selectMenu3}"),
+              trailing: Text("${countThree}"),
+            ),
+          if(countFour != 0)
+            ListTile(
+              leading: Icon(Icons.fastfood),
+              title: Text("${selectMenu4}"),
+              trailing: Text("${countFour}"),
+            ),
+          if(countFive != 0)
+            ListTile(
+              leading: Icon(Icons.fastfood),
+              title: Text("${selectMenu5}"),
+              trailing: Text("${countFive}"),
+            ),],
+        ),
     );
   }
 }
