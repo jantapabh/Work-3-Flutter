@@ -1,4 +1,5 @@
 
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
@@ -401,24 +402,23 @@ class buttonSectionState extends State<buttonSection>{
               RaisedButton(
                  color: Colors.white,
                   child: Text("Submit Order", style: TextStyle(color: Colors.blue),),
-                  onPressed:() => setState((){
+                  onPressed:() =>  countOne != 0 || countTwo != 0 || countThree != 0 || countFour != 0 || countFive != 0 ?
+                    setState((){
                     opacity = 1;
-                  if(true)
-                    {
-                      countOne == 0 && countTwo == 0 && countThree == 0 && countFour == 0 && countFive == 0 ?
-                      AnimatedOpacity(
-                        duration: Duration(seconds: 2),
-                        child: Column(
-                          children: <Widget>[
-                            Text("***Please Select Menu***", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),)
-                          ],
-                        ),
-                        opacity: opacity,
-                      ):
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => ListMenu()));
-                    }
-                  }),
-              )
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => ListMenu()));
+                  }) :   setState((){
+//                    !(Navigator.push(context, MaterialPageRoute(builder: (context) => ListMenu())));
+                  })
+              ),
+      AnimatedOpacity(
+        duration: Duration(seconds: 2),
+        child: Column(
+          children: <Widget>[
+            Text("***Please Select Menu***", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),)
+          ],
+        ),
+        opacity: opacity,
+      ),
             ],
           ),
         ),
@@ -432,7 +432,6 @@ var countTwo = 0;
 var countThree = 0;
 var countFour = 0;
 var countFive = 0;
-var count = 0; //  Number count Click Button if count > 5 will reset = 0
 
 //ตัวแปรเก็บค่าชื่อเมนูที่ถูฏเลือก
 var selectMenu1 = "";
@@ -442,10 +441,9 @@ var selectMenu4 = "";
 var selectMenu5 = "";
 
 //Array list countMenu and Menu
-final bool savedState = false;
 List<int> menuCount = [0, 0, 0, 0, 0];
 List<String> menuSelect = ["","","","",""];
-final List<String> selects = [" "," "," "," "," "];
+final List<String> selects = ["","","","",""];
 final List<bool> counts = [ false,false,false,false,false];
 
 //final List<String> items = List<String>.generate(selects.length, (index) => "Menu${++index}");
@@ -456,24 +454,24 @@ class ListMenu extends StatefulWidget{
 
 }
 // ListView Biukder in Display list Menu
+final int count = 0 ;
 
 
 class ListMenuState extends State<ListMenu>{
 
   Widget _buildSuggestion() {
 
-     counts == true ? count++ : count;
     return Container(
       child: ListView.builder(
-        itemCount: menuSelect.length,
+        itemCount: menuCount.length,
           itemBuilder: (context, index){
           return ListTile(
             leading: Icon(
-                Icons.fastfood),
+                menuCount[index] != 0 ? Icons.fastfood : null),
             title: Text(
-             counts != false ? "${selects[index]}" : index++ ),
+                selects[index] != " " ? "${selects[index]}" : ""),
             trailing: Text(
-                menuCount != 0 ? "${menuCount[index]}" : index++ ),
+                menuCount[index] != 0 ? "${menuCount[index]}" : ""),
           );
           }),
     );
