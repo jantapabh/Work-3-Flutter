@@ -393,36 +393,27 @@ class buttonSectionState extends State<buttonSection>{
     // TODO: implement build
     return Column(
       children: <Widget>[
-        Container(
-          height: 100,
-          width: 200,
-          color: Colors.greenAccent,
-          child: Column(
-            children: <Widget>[
-              RaisedButton(
-                 color: Colors.white,
-                  child: Text("Submit Order", style: TextStyle(color: Colors.blue),),
-                  onPressed:() =>  countOne != 0 || countTwo != 0 || countThree != 0 || countFour != 0 || countFive != 0 ?
-                    setState((){
-                    opacity = 1;
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => ListMenu()));
-                  }) :   setState((){
-//                    !(Navigator.push(context, MaterialPageRoute(builder: (context) => ListMenu())));
-                  })
-              ),
-      AnimatedOpacity(
-        duration: Duration(seconds: 2),
+       RaisedButton(
+         child: Text("Submit Order", style: TextStyle(color: Colors.blueAccent, fontSize: 20),),
+         onPressed: () => setState((){
+         if( countOne == 0 && countTwo == 0 && countThree == 0 && countFour == 0 && countFive == 0)
+           opacity = 1;
+         else
+           opacity = 0;
+
+         if(opacity == 0)
+           Navigator.push(context, MaterialPageRoute(builder: (context) => ListMenu()));
+       }),
+       ),
+        AnimatedOpacity(
+            duration: Duration(seconds: 2),
         child: Column(
           children: <Widget>[
-            Text("***Please Select Menu***", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),)
+            Text("***Select Menu Pleas***", style: TextStyle(color: Colors.redAccent, fontSize: 15 , fontWeight: FontWeight.bold),)
           ],
         ),
-        opacity: opacity,
-      ),
-            ],
-          ),
-        ),
-      ],
+        opacity: opacity,)
+    ],
     );
   }
 }
